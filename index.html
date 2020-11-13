@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html leng="eng">
+    <head>
+    
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+    
+    <title>Cuda</title>
+    
+    </head>
+    
+<body>
+<!-- SPRITE -->
+<svg style="display: none;">
+    <symbol id="facebook" viewBox="0 0 97.75 97.75">
+        <g>
+    <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z
+		 M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258
+		h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z"/>
+        </g>
+    </symbol>
+    
+    <symbol id="twitter" viewBox="0 0 512 512">
+        <g>
+    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm116.886719 199.601562c.113281 2.519532.167969 5.050782.167969 7.59375 0 77.644532-59.101563 167.179688-167.183594 167.183594h.003906-.003906c-33.183594 0-64.0625-9.726562-90.066406-26.394531 4.597656.542969 9.277343.8125 14.015624.8125 27.53125 0 52.867188-9.390625 72.980469-25.152344-25.722656-.476562-47.410156-17.464843-54.894531-40.8125 3.582031.6875 7.265625 1.0625 11.042969 1.0625 5.363281 0 10.558593-.722656 15.496093-2.070312-26.886718-5.382813-47.140624-29.144531-47.140624-57.597657 0-.265624 0-.503906.007812-.75 7.917969 4.402344 16.972656 7.050782 26.613281 7.347657-15.777343-10.527344-26.148437-28.523438-26.148437-48.910157 0-10.765624 2.910156-20.851562 7.957031-29.535156 28.976563 35.554688 72.28125 58.9375 121.117187 61.394532-1.007812-4.304688-1.527343-8.789063-1.527343-13.398438 0-32.4375 26.316406-58.753906 58.765625-58.753906 16.902344 0 32.167968 7.144531 42.890625 18.566406 13.386719-2.640625 25.957031-7.53125 37.3125-14.261719-4.394531 13.714844-13.707031 25.222657-25.839844 32.5 11.886719-1.421875 23.214844-4.574219 33.742187-9.253906-7.863281 11.785156-17.835937 22.136719-29.308593 30.429687zm0 0" />
+    </g>
+    </symbol>
+    
+    <symbol id="linkedin" viewBox="0 0 512 512">
+        <g>
+    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"/>
+        </g>
+    </symbol>
+    
+    <symbol id="mail" viewBox="0 0 216 216">
+        <g>
+    <path d="M108,0C48.353,0,0,48.353,0,108s48.353,108,108,108s108-48.353,108-108S167.647,0,108,0z M156.657,60L107.96,98.498
+	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
+	l49.374-39.276V156z"/>
+        </g>
+    </symbol>
+</svg>   
+   
+   
+   
+   
+   
+   
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo" id="header__logo">
+                    <a href="index.html"><img class="logo" src="https://i.yapx.ru/JnFi2.png"></a>
+                </div>
+             <nav class="nav">
+                 <a class="nav__link" href="#">Home</a>
+                 <a class="nav__link" href="#">About</a>
+                 <a class="nav__link" href="#">Work</a>
+                 <a class="nav__link" href="#">Blog</a>
+                 <a class="nav__link" href="#">Contact</a>   
+             </nav>
+             <span class="menu-icon closed" id="menuBtn"></span>
+
+             <nav class="menu-container closed" id="menuContainer">
+                 <ul>
+                     <li><a href="#" target="_blank">Home</a></li>
+                     <li><a href="#" target="_blank">About</a></li>
+                     <li><a href="#" target="_blank">Work</a>
+                     </li>
+                     <li><a href="#" target="_blank">Blog</a>
+                     </li>
+                     <li><a href="#" target="_blank">Contact</a>
+                     </li>
+                 </ul>
+</nav>  
+            </div>
+        </div>
+    </header>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+    <div class="container">
+        <div class="intro__inner">
+            <h1 class="intro__title">Hi there! We are the new kids on the block
+                and we build awesome websites and mobile apps
+                </h1>
+            <a class="button" href="#">Work with us!</a>
+        </div>
+    </div>
+</div>
+   
+<!-- SERVICES -->
+<div class="services">
+<div class="container">
+<div class="section__header">
+       <div class="section__title">SERVICES WE PROVIDE</div>
+<div class="section__suptitle">We are working with both individuals and businesses from all over the globe
+    to create awesome websites and applications.
+</div>
+</div>
+<div class="services__row">
+        <div class="services__item">
+            <img class="services__icon" src="icon1.png" alt="services">
+            <h4 class="services__title">Branding</h4>
+            <div class="services__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</div>
+            
+        </div>
+        
+        <div class="services__item">
+            <img class="services__icon" src="icon2.png" alt="services">
+            <h4 class="services__title">Design</h4>
+            <div class="services__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem  </div>
+            
+        </div>
+        
+        <div class="services__item">
+            <img class="services__icon" src="icon3.png" alt="services">
+            <h4 class="services__title">Development</h4>
+            <div class="services__text">At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium.</div>
+            
+        </div>
+        
+        <div class="services__item">
+            <img class="services__icon" src="icon4.png" alt="services">
+            <h4 class="services__title">Rocket Science</h4>
+            <div class="services__text">Et harum quidem rerum est et expedita distinctio. Nam libero tempore.</div>
+            
+            </div>
+        </div> <!-- /.SERVICES__ROW -->
+    </div> <!-- /.CONTAINER -->
+</div> <!-- /.SERVICES-->
+
+<!-- MEET OUR TEAM -->
+<div class="team">
+    <div class="container">
+        <div class="team__header">
+            <div class="team__title">MEET OUR BEAUTIFUL TEAM
+            </div>
+            <div class="team__suptitle">We are a small team of designers and developers, who help brands with big ideas.
+            </div>
+        </div>
+        
+        <div class="team__inner">
+            <div class="team__item">
+                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
+                <div class="team__inner__title">ANNE HATHAWAY</div>
+                <div class="team__inner__position">CEO / Marketing Guru</div>
+                <div class="team__inner__text">Lorem ipsum dolor sit amet,
+                    consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</div>
+                <div class="team__inner__social">
+                  <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#facebook"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#twitter"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#linkedin"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#mail"></use>
+                      </svg>
+                  </a>  
+                </div>
+            </div>
+            
+            <div class="team__item">
+                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
+                <div class="team__inner__title">ANNE HATHAWAY</div>
+                <div class="team__inner__position">CEO / Marketing Guru</div>
+                <div class="team__inner__text">Duis aute irure dolor in in voluptate velit esse cillum dolore fugiat nulla pariatur. Excepteur sint occaecat non diam proident.</div>
+                <div class="team__inner__social">
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#twitter"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#linkedin"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#mail"></use>
+                      </svg>
+                  </a>  
+                </div>
+            </div>
+            
+            <div class="team__item">
+                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
+                <div class="team__inner__title">ANNE HATHAWAY</div>
+                <div class="team__inner__position">CEO / Marketing Guru</div>
+                <div class="team__inner__text">Nemo enim ipsam voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem nesciunt.</div>
+                <div class="team__inner__social">
+                  <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#facebook"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#twitter"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#linkedin"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#mail"></use>
+                      </svg>
+                  </a>  
+                </div>
+            </div>
+            
+            <div class="team__item">
+                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
+                <div class="team__inner__title">ANNE HATHAWAY</div>
+                <div class="team__inner__position">CEO / Marketing Guru</div>
+                <div class="team__inner__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</div>
+                <div class="team__inner__social">
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#twitter"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#linkedin"></use>
+                      </svg>
+                  </a>
+                  
+                    <a class="social__item" href="#" target="_blank">
+                      <svg class="social__icon">
+                          <use xlink:href="#mail"></use>
+                      </svg>
+                  </a>  
+                </div>
+            </div>
+        </div> <!-- /.TEAM__INNER -->
+    </div> <!-- /.CONTAINER -->
+</div> <!-- /.TEAM -->
+
+   <!-- SKILLS-->   
+<div class="skills">
+    <div class="container">
+        <div class="skills__header">
+            <div class="skills__title">
+                We got skills!
+            </div>
+            <div class="skills__suptitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+        
+        <div class="skills__inner">
+            <div class="skills__item">
+                <img class="skills__progress" src="https://i.yapx.ru/JgSMP.jpg">
+                <div class="skills__text">Web Design</div>
+            </div>
+            
+            <div class="skills__item">
+                <img class="skills__progress" src="https://i.yapx.ru/JgSMR.jpg">
+                <div class="skills__text">Html / CSS</div>
+            </div>
+            
+            <div class="skills__item">
+                <img class="skills__progress" src="https://i.yapx.ru/JgSMU.jpg">
+                <div class="skills__text">Graphic Design</div>
+            </div>
+            
+            <div class="skills__item">
+                <img class="skills__progress" src="https://i.yapx.ru/JgSMX.jpg">
+                <div class="skills__text">UI / UX</div>
+            </div>
+        </div>
+    </div> <!-- /.CONTAINER -->
+</div> <!-- /.SKILLS --> 
+
+<!-- PORTFOLIO -->   
+<div class="portfolio">
+    <div class="container">
+        <div class="portfolio__header">
+            <div class="portfolio__title">Our Portfolio</div>
+            <div class="portfolio__suptitle">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet
+                consectetur, adipisci velit, sed quia non numquam</div>
+        </div>
+            <div class="categories__inner">
+                <div class="categories__item">All</div>
+                <div class="categories__item">Web</div>
+                <div class="categories__item">Apps</div>
+                <div class="categories__item">Icons</div>
+            </div>
+            <div class="works__inner">
+                <div class="works__item">
+                    <img class="works__img" src="https://i.yapx.ru/JnFj3.png" alt="works1">
+                    <div class="works__name">Isometric Perspective Mock-Up</div>
+                </div>
+                
+                <div class="works__item">
+                    <img class="works__img" src="https://i.yapx.ru/JnFj4.png" alt="works2">
+                    <div class="works__name">Time Zone App UI</div>
+                </div>
+                
+                <div class="works__item">
+                    <img class="works__img" src="https://i.yapx.ru/JnFj6.png" alt="works3">
+                    <div class="works__name">Viro Media Players UI</div>
+                </div>
+                
+                <div class="works__item">
+                    <img class="works__img" src="https://i.yapx.ru/JnFj8.png" alt="works4">
+                    <div class="works__name">Blog / Magazine Flat UI Kit</div>
+                </div>
+            </div>
+            <div class="portfolio__button__inner">
+                <a class="portfolio__button">LOAD MORE PROJECTS</a>
+            </div>
+    </div> <!-- /.CONTAINER -->
+</div> <!-- /.PORTFOLIO -->
+   
+<!-- REVIEWS -->
+<div class="reviews">
+   <div class="container">
+    <div class="reviews__header">
+        <div class="reviews__title">WHAT POEPLE SAY ABOUT US</div>
+        <div class="reviews__suptitle">Our clients love us!</div>
+    </div>
+    <div class="reviews__inner">
+        <div class="reviews__item">
+            <div class="reviews__img">
+                <img src="https://i.yapx.ru/JnFjB.png" alt="reviews1">
+            </div>
+            <div class="reviews__content">
+            <div class="reviews__text">“Nullam dapibus blandit orci, viverra gravida dui lobortis eget. Maecenas fringilla urna eu nisl scelerisque.</div>
+            <div class="reviews__name">Chanel Iman</div>
+            <div class="reviews__position">CEO of Pinterest</div>
+        </div>
+        </div>
+        <div class="reviews__item">
+            <div class="reviews__img">
+                <img src="https://i.yapx.ru/JnFjC.png" alt="reviews1">
+            </div>
+            <div class="reviews__content">
+            <div class="reviews__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
+            <div class="reviews__name">ADRIANA LIMA</div>
+            <div class="reviews__position">Founder of Instagram</div>
+        </div>
+        </div>
+        <div class="reviews__item">
+            <div class="reviews__img">
+                <img src="https://i.yapx.ru/JnFjE.png" alt="reviews1">
+            </div>
+            <div class="reviews__content"> 
+            <div class="reviews__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
+            <div class="reviews__name">ANNE HATHAWAY</div>
+            <div class="reviews__position">Lead Designer at Behance</div>
+        </div>
+        </div>
+        
+        <div class="reviews__item">
+            <div class="reviews__img">
+                <img src="https://i.yapx.ru/JnFjF.png" alt="reviews1">
+            </div>
+        <div class="reviews__content"> 
+            <div class="reviews__text">“Phasellus non purus vel arcu tempor commodo. Fusce semper, purus vel luctus molestie, risus sem cursus neque.”</div>
+            <div class="reviews__name">EMMA STONE</div>
+            <div class="reviews__position">Co-Founder of Shazam</div>
+            </div>
+        </div>
+    </div> <!-- /.REVIEWS__INNER-->
+ </div> <!-- /.CONTAINER-->
+</div> <!-- /.REVIEWS -->
+
+<!-- MESSAGE -->   
+<div class="message">
+    <div class="container">
+        <div class="message__header">
+            <div class="message__title">GET IN TOUCH
+            </div>
+            <div class="message__suptitle">1600 Pennsylvania Ave NW, Washington, DC 20500, United States of America. Tel: (202) 456-1111
+            </div>
+        </div>
+        <div class="text__box">
+           <div class="name__email">
+            <label>
+                <input type="text" placeholder="Your Name:" class="text--box">
+            </label>
+            <label>
+                <input type="text" placeholder="Your Email:" class="text--box">
+            </label>
+            </div>
+            <div class="message__box">
+                <label>
+                    <textarea type="text" placeholder="Message" class="message--box"></textarea>
+                </label>
+            </div>
+        </div>
+        <div class="send__button__inner">
+            <div class="send__button">Send Message</div>
+        </div>
+    </div> <!-- /.CONTAINER -->
+</div> <!-- /.MESSAGE --> 
+   
+ <footer class="footer">
+     <div class="container">
+         <div class="footer__inner">
+             <a class="footer__item" href="#" target="_blank">Facebook</a>
+             <a class="footer__item" href="#" target="_blank">Twitter</a>
+             <a class="footer__item" href="#" target="_blank">Google+</a>
+             <a class="footer__item" href="#" target="_blank">LinkedIn</a>
+             <a class="footer__item" href="#" target="_blank">Behance</a>
+             <a class="footer__item" href="#" target="_blank">Dribble</a>
+             <a class="footer__item" href="#" target="_blank">GitHub</a>
+         </div>
+     </div>
+ </footer>
+  
+    <a class="up_down_btn" title="Наверх">&uarr;</a>  
+   
+   
+   
+   
+   
+   
+
+   
+   
+    
+</body>
+
+<script src="js/burger.js"></script>
+<script src="js/scrolltopdown.js"></script>
+
+</html>
