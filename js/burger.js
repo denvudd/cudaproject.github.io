@@ -1,19 +1,26 @@
+function burgerMenu(selector) {
+  let menu = $(selector);
+  let button = menu.find('.burger-menu__button');
+  let links = menu.find('.burger__link');
+  let overlay = menu.find('.burger-menu__overlay');
 
+  button.on('click', (e) => {
+    e.preventDefault();
+    toggleMenu();
+  });
 
-let menuBtn = document.getElementById('menuBtn');
-let menuContainer = document.getElementById('menuContainer');
+  links.on('click', () => toggleMenu());
+  overlay.on('click', () => toggleMenu());
 
-let menuIconClosed = "menu-icon closed"; //class name for closed button
-let menuIconOpened = "menu-icon opened"; //class name for opened button
-let menuContClosed = "menu-container closed"; //class name for closed menu
-let menuContOpened = "menu-container opened"; //class name for opened menu
+  function toggleMenu() {
+    menu.toggleClass('burger-menu__active');
 
-menuBtn.onclick = function() {
-  if (menuBtn.className == menuIconClosed) {
-    menuBtn.className = menuIconOpened;
-    menuContainer.className = menuContOpened;
-  } else if (menuBtn.className == menuIconOpened) {
-    menuBtn.className = menuIconClosed;
-    menuContainer.className = menuContClosed;
+    if (menu.hasClass('burger-menu__active')) {
+      $('body').css('overflow', 'hidden');
+    } else {
+      $('body').css('overflow', 'visible');
+    }
   }
 }
+
+burgerMenu('.burger-menu');
