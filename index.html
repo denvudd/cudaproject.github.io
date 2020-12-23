@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="js/app.js"></script>
-    
     <title>Cuda</title>
-    
     </head>
-    
 <body>
 <!-- SPRITE -->
 <svg style="display: none;">
@@ -44,12 +41,6 @@
         </g>
     </symbol>
 </svg>   
-   
-   
-   
-   
-   
-   
     <header class="header" id="header">
         <div class="container">
             <div class="header__inner">
@@ -63,20 +54,21 @@
                  <a class="nav__link" href="#">Blog</a>
                  <a class="nav__link" href="#">Contact</a>   
              </nav>
-             <span class="menu-icon closed" id="menuBtn"></span>
 
-             <nav class="menu-container closed" id="menuContainer">
-                 <ul>
-                     <li><a href="#" target="_blank">Home</a></li>
-                     <li><a href="#" target="_blank">About</a></li>
-                     <li><a href="#" target="_blank">Work</a>
-                     </li>
-                     <li><a href="#" target="_blank">Blog</a>
-                     </li>
-                     <li><a href="#" target="_blank">Contact</a>
-                     </li>
-                 </ul>
-</nav>  
+             <div class="burger-menu">
+                <a href="#" class="burger-menu__button">
+                  <span class="burger-menu__lines">
+                    <div class="burger-menu__nav">
+                          <a href="#" class="burger__link" data-scroll="#features">Features</a>
+                          <a href="#" class="burger__link" data-scroll="#works">Works</a>
+                          <a href="#" class="burger__link" data-scroll="#team">Our team</a>
+                          <a href="#" class="burger__link" data-scroll="#reviews">Reviews</a>
+                          <a href="#" class="burger__link" data-scroll="#download">Download</a>
+                    </div>
+      
+                    <div class="burger-menu__overlay"></div>
+                </a>
+              </div> 
             </div>
         </div>
     </header>
@@ -104,28 +96,28 @@
 </div>
 <div class="services__row">
         <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTW.png" alt="services">
+            <img class="services__icon" src="icon1.png" alt="services">
             <h4 class="services__title">Branding</h4>
             <div class="services__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</div>
             
         </div>
         
         <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTY.png" alt="services">
+            <img class="services__icon" src="icon2.png" alt="services">
             <h4 class="services__title">Design</h4>
             <div class="services__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem  </div>
             
         </div>
         
         <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTZ.png" alt="services">
+            <img class="services__icon" src="icon3.png" alt="services">
             <h4 class="services__title">Development</h4>
             <div class="services__text">At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium.</div>
             
         </div>
         
         <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTa.png" alt="services">
+            <img class="services__icon" src="icon4.png" alt="services">
             <h4 class="services__title">Rocket Science</h4>
             <div class="services__text">Et harum quidem rerum est et expedita distinctio. Nam libero tempore.</div>
             
@@ -441,16 +433,7 @@
  </footer>
   
     <a class="up_down_btn" title="Наверх">&uarr;</a>  
-   
-   
-   
-   
-   
-   
 
-   
-   
-    
 </body>
 
 <script src="js/burger.js"></script>
