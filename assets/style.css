@@ -1,460 +1,1135 @@
-<!DOCTYPE html>
-<html leng="eng">
-    <head>
-    
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/app.js"></script>
-    
-    <title>Cuda</title>
-    
-    </head>
-    
-<body>
-<!-- SPRITE -->
-<svg style="display: none;">
-    <symbol id="facebook" viewBox="0 0 97.75 97.75">
-        <g>
-    <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z
-		 M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258
-		h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z"/>
-        </g>
-    </symbol>
-    
-    <symbol id="twitter" viewBox="0 0 512 512">
-        <g>
-    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm116.886719 199.601562c.113281 2.519532.167969 5.050782.167969 7.59375 0 77.644532-59.101563 167.179688-167.183594 167.183594h.003906-.003906c-33.183594 0-64.0625-9.726562-90.066406-26.394531 4.597656.542969 9.277343.8125 14.015624.8125 27.53125 0 52.867188-9.390625 72.980469-25.152344-25.722656-.476562-47.410156-17.464843-54.894531-40.8125 3.582031.6875 7.265625 1.0625 11.042969 1.0625 5.363281 0 10.558593-.722656 15.496093-2.070312-26.886718-5.382813-47.140624-29.144531-47.140624-57.597657 0-.265624 0-.503906.007812-.75 7.917969 4.402344 16.972656 7.050782 26.613281 7.347657-15.777343-10.527344-26.148437-28.523438-26.148437-48.910157 0-10.765624 2.910156-20.851562 7.957031-29.535156 28.976563 35.554688 72.28125 58.9375 121.117187 61.394532-1.007812-4.304688-1.527343-8.789063-1.527343-13.398438 0-32.4375 26.316406-58.753906 58.765625-58.753906 16.902344 0 32.167968 7.144531 42.890625 18.566406 13.386719-2.640625 25.957031-7.53125 37.3125-14.261719-4.394531 13.714844-13.707031 25.222657-25.839844 32.5 11.886719-1.421875 23.214844-4.574219 33.742187-9.253906-7.863281 11.785156-17.835937 22.136719-29.308593 30.429687zm0 0" />
-    </g>
-    </symbol>
-    
-    <symbol id="linkedin" viewBox="0 0 512 512">
-        <g>
-    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"/>
-        </g>
-    </symbol>
-    
-    <symbol id="mail" viewBox="0 0 216 216">
-        <g>
-    <path d="M108,0C48.353,0,0,48.353,0,108s48.353,108,108,108s108-48.353,108-108S167.647,0,108,0z M156.657,60L107.96,98.498
-	L57.679,60H156.657z M161.667,156h-109V76.259l50.244,38.11c1.347,1.03,3.34,1.545,4.947,1.545c1.645,0,3.073-0.54,4.435-1.616
-	l49.374-39.276V156z"/>
-        </g>
-    </symbol>
-</svg>   
-   
-   
-   
-   
-   
-   
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header__inner">
-                <div class="header__logo" id="header__logo">
-                    <a href="index.html"><img class="logo" src="https://i.yapx.ru/JnFi2.png"></a>
-                </div>
-             <nav class="nav">
-                 <a class="nav__link" href="#">Home</a>
-                 <a class="nav__link" href="#">About</a>
-                 <a class="nav__link" href="#">Work</a>
-                 <a class="nav__link" href="#">Blog</a>
-                 <a class="nav__link" href="#">Contact</a>   
-             </nav>
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
-             <div class="burger-menu">
-                <a href="#" class="burger-menu__button">
-                  <span class="burger-menu__lines">
-                    <div class="burger-menu__nav">
-                          <a href="#" class="burger__link" data-scroll="#features">Features</a>
-                          <a href="#" class="burger__link" data-scroll="#works">Works</a>
-                          <a href="#" class="burger__link" data-scroll="#team">Our team</a>
-                          <a href="#" class="burger__link" data-scroll="#reviews">Reviews</a>
-                          <a href="#" class="burger__link" data-scroll="#download">Download</a>
-                    </div>
-      
-                    <div class="burger-menu__overlay"></div>
-                </a>
-              </div> 
-            </div>
-        </div>
-    </header>
+body { 
+    margin: 0;
+    
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 14px;
+    color: #6c7279;
+    
+    --webkit-font-smoothing: antialiased;
+    
+    background-color: #fff;
+    
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
-<!-- INTRO -->
-<div class="intro" id="intro">
-    <div class="container">
-        <div class="intro__inner">
-            <h1 class="intro__title">Hi there! We are the new kids on the block
-                and we build awesome websites and mobile apps
-                </h1>
-            <a class="button" href="#">Work with us!</a>
-        </div>
-    </div>
-</div>
-   
-<!-- SERVICES -->
-<div class="services">
-<div class="container">
-<div class="section__header">
-       <div class="section__title">SERVICES WE PROVIDE</div>
-<div class="section__suptitle">We are working with both individuals and businesses from all over the globe
-    to create awesome websites and applications.
-</div>
-</div>
-<div class="services__row">
-        <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTW.png" alt="services">
-            <h4 class="services__title">Branding</h4>
-            <div class="services__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</div>
-            
-        </div>
-        
-        <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTY.png" alt="services">
-            <h4 class="services__title">Design</h4>
-            <div class="services__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem  </div>
-            
-        </div>
-        
-        <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTZ.png" alt="services">
-            <h4 class="services__title">Development</h4>
-            <div class="services__text">At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium.</div>
-            
-        </div>
-        
-        <div class="services__item">
-            <img class="services__icon" src="https://i.yapx.ru/JnGTa.png" alt="services">
-            <h4 class="services__title">Rocket Science</h4>
-            <div class="services__text">Et harum quidem rerum est et expedita distinctio. Nam libero tempore.</div>
-            
-            </div>
-        </div> <!-- /.SERVICES__ROW -->
-    </div> <!-- /.CONTAINER -->
-</div> <!-- /.SERVICES-->
+* {
+    box-sizing: border-box;
+}
 
-<!-- MEET OUR TEAM -->
-<div class="team">
-    <div class="container">
-        <div class="team__header">
-            <div class="team__title">MEET OUR BEAUTIFUL TEAM
-            </div>
-            <div class="team__suptitle">We are a small team of designers and developers, who help brands with big ideas.
-            </div>
-        </div>
-        
-        <div class="team__inner">
-            <div class="team__item">
-                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
-                <div class="team__inner__title">ANNE HATHAWAY</div>
-                <div class="team__inner__position">CEO / Marketing Guru</div>
-                <div class="team__inner__text">Lorem ipsum dolor sit amet,
-                    consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</div>
-                <div class="team__inner__social">
-                  <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#facebook"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#twitter"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#linkedin"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#mail"></use>
-                      </svg>
-                  </a>  
-                </div>
-            </div>
-            
-            <div class="team__item">
-                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
-                <div class="team__inner__title">ANNE HATHAWAY</div>
-                <div class="team__inner__position">CEO / Marketing Guru</div>
-                <div class="team__inner__text">Duis aute irure dolor in in voluptate velit esse cillum dolore fugiat nulla pariatur. Excepteur sint occaecat non diam proident.</div>
-                <div class="team__inner__social">
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#twitter"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#linkedin"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#mail"></use>
-                      </svg>
-                  </a>  
-                </div>
-            </div>
-            
-            <div class="team__item">
-                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
-                <div class="team__inner__title">ANNE HATHAWAY</div>
-                <div class="team__inner__position">CEO / Marketing Guru</div>
-                <div class="team__inner__text">Nemo enim ipsam voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem nesciunt.</div>
-                <div class="team__inner__social">
-                  <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#facebook"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#twitter"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#linkedin"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#mail"></use>
-                      </svg>
-                  </a>  
-                </div>
-            </div>
-            
-            <div class="team__item">
-                <img class="team__inner__icon" src="https://i.yapx.ru/JnFiV.png">
-                <div class="team__inner__title">ANNE HATHAWAY</div>
-                <div class="team__inner__position">CEO / Marketing Guru</div>
-                <div class="team__inner__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</div>
-                <div class="team__inner__social">
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#twitter"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#linkedin"></use>
-                      </svg>
-                  </a>
-                  
-                    <a class="social__item" href="#" target="_blank">
-                      <svg class="social__icon">
-                          <use xlink:href="#mail"></use>
-                      </svg>
-                  </a>  
-                </div>
-            </div>
-        </div> <!-- /.TEAM__INNER -->
-    </div> <!-- /.CONTAINER -->
-</div> <!-- /.TEAM -->
+*:before,
+*:after {
+    box-sizing: border-box;
+}
 
-   <!-- SKILLS-->   
-<div class="skills">
-    <div class="container">
-        <div class="skills__header">
-            <div class="skills__title">
-                We got skills!
-            </div>
-            <div class="skills__suptitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</div>
-        </div>
-        
-        <div class="skills__inner">
-            <div class="skills__item">
-                <img class="skills__progress" src="https://i.yapx.ru/JgSMP.jpg">
-                <div class="skills__text">Web Design</div>
-            </div>
-            
-            <div class="skills__item">
-                <img class="skills__progress" src="https://i.yapx.ru/JgSMR.jpg">
-                <div class="skills__text">Html / CSS</div>
-            </div>
-            
-            <div class="skills__item">
-                <img class="skills__progress" src="https://i.yapx.ru/JgSMU.jpg">
-                <div class="skills__text">Graphic Design</div>
-            </div>
-            
-            <div class="skills__item">
-                <img class="skills__progress" src="https://i.yapx.ru/JgSMX.jpg">
-                <div class="skills__text">UI / UX</div>
-            </div>
-        </div>
-    </div> <!-- /.CONTAINER -->
-</div> <!-- /.SKILLS --> 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
 
-<!-- PORTFOLIO -->   
-<div class="portfolio">
-    <div class="container">
-        <div class="portfolio__header">
-            <div class="portfolio__title">Our Portfolio</div>
-            <div class="portfolio__suptitle">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet
-                consectetur, adipisci velit, sed quia non numquam</div>
-        </div>
-            <div class="categories__inner">
-                <div class="categories__item">All</div>
-                <div class="categories__item">Web</div>
-                <div class="categories__item">Apps</div>
-                <div class="categories__item">Icons</div>
-            </div>
-            <div class="works__inner">
-                <div class="works__item">
-                    <img class="works__img" src="https://i.yapx.ru/JnFj3.png" alt="works1">
-                    <div class="works__name">Isometric Perspective Mock-Up</div>
-                </div>
-                
-                <div class="works__item">
-                    <img class="works__img" src="https://i.yapx.ru/JnFj4.png" alt="works2">
-                    <div class="works__name">Time Zone App UI</div>
-                </div>
-                
-                <div class="works__item">
-                    <img class="works__img" src="https://i.yapx.ru/JnFj6.png" alt="works3">
-                    <div class="works__name">Viro Media Players UI</div>
-                </div>
-                
-                <div class="works__item">
-                    <img class="works__img" src="https://i.yapx.ru/JnFj8.png" alt="works4">
-                    <div class="works__name">Blog / Magazine Flat UI Kit</div>
-                </div>
-            </div>
-            <div class="portfolio__button__inner">
-                <a class="portfolio__button">LOAD MORE PROJECTS</a>
-            </div>
-    </div> <!-- /.CONTAINER -->
-</div> <!-- /.PORTFOLIO -->
-   
-<!-- REVIEWS -->
-<div class="reviews">
-   <div class="container">
-    <div class="reviews__header">
-        <div class="reviews__title">WHAT POEPLE SAY ABOUT US</div>
-        <div class="reviews__suptitle">Our clients love us!</div>
-    </div>
-    <div class="reviews__inner">
-        <div class="reviews__item">
-            <div class="reviews__img">
-                <img src="https://i.yapx.ru/JnFjB.png" alt="reviews1">
-            </div>
-            <div class="reviews__content">
-            <div class="reviews__text">“Nullam dapibus blandit orci, viverra gravida dui lobortis eget. Maecenas fringilla urna eu nisl scelerisque.</div>
-            <div class="reviews__name">Chanel Iman</div>
-            <div class="reviews__position">CEO of Pinterest</div>
-        </div>
-        </div>
-        <div class="reviews__item">
-            <div class="reviews__img">
-                <img src="https://i.yapx.ru/JnFjC.png" alt="reviews1">
-            </div>
-            <div class="reviews__content">
-            <div class="reviews__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
-            <div class="reviews__name">ADRIANA LIMA</div>
-            <div class="reviews__position">Founder of Instagram</div>
-        </div>
-        </div>
-        <div class="reviews__item">
-            <div class="reviews__img">
-                <img src="https://i.yapx.ru/JnFjE.png" alt="reviews1">
-            </div>
-            <div class="reviews__content"> 
-            <div class="reviews__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
-            <div class="reviews__name">ANNE HATHAWAY</div>
-            <div class="reviews__position">Lead Designer at Behance</div>
-        </div>
-        </div>
-        
-        <div class="reviews__item">
-            <div class="reviews__img">
-                <img src="https://i.yapx.ru/JnFjF.png" alt="reviews1">
-            </div>
-        <div class="reviews__content"> 
-            <div class="reviews__text">“Phasellus non purus vel arcu tempor commodo. Fusce semper, purus vel luctus molestie, risus sem cursus neque.”</div>
-            <div class="reviews__name">EMMA STONE</div>
-            <div class="reviews__position">Co-Founder of Shazam</div>
-            </div>
-        </div>
-    </div> <!-- /.REVIEWS__INNER-->
- </div> <!-- /.CONTAINER-->
-</div> <!-- /.REVIEWS -->
+p {
+    margin: 0 0 10px;
+}
 
-<!-- MESSAGE -->   
-<div class="message">
-    <div class="container">
-        <div class="message__header">
-            <div class="message__title">GET IN TOUCH
-            </div>
-            <div class="message__suptitle">1600 Pennsylvania Ave NW, Washington, DC 20500, United States of America. Tel: (202) 456-1111
-            </div>
-        </div>
-        <div class="text__box">
-           <div class="name__email">
-            <label>
-                <input type="text" placeholder="Your Name:" class="text--box">
-            </label>
-            <label>
-                <input type="text" placeholder="Your Email:" class="text--box">
-            </label>
-            </div>
-            <div class="message__box">
-                <label>
-                    <textarea type="text" placeholder="Message" class="message--box"></textarea>
-                </label>
-            </div>
-        </div>
-        <div class="send__button__inner">
-            <div class="send__button">Send Message</div>
-        </div>
-    </div> <!-- /.CONTAINER -->
-</div> <!-- /.MESSAGE --> 
-   
- <footer class="footer">
-     <div class="container">
-         <div class="footer__inner">
-             <a class="footer__item" href="#" target="_blank">Facebook</a>
-             <a class="footer__item" href="#" target="_blank">Twitter</a>
-             <a class="footer__item" href="#" target="_blank">Google+</a>
-             <a class="footer__item" href="#" target="_blank">LinkedIn</a>
-             <a class="footer__item" href="#" target="_blank">Behance</a>
-             <a class="footer__item" href="#" target="_blank">Dribble</a>
-             <a class="footer__item" href="#" target="_blank">GitHub</a>
-         </div>
-     </div>
- </footer>
+/* CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header.fixed {
+    height: auto;
+    position: fixed;
+    background-color: #87509c;
+    z-index: 100;
+}
+
+.header.fixed .burger-menu__button {
+    top: 32px;
+}
+
+.header.fixed .header__inner {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    padding: 35px 0;
+}
+
+.header__logo {
+    cursor: pointer;
+}
+
+.logo {
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+.nav {
+    
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.nav__link {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 5px 20px;
+    transition: all 0.3s ease;
+}
+
+.nav__link:hover {
+    background:#643a79;
+    
+}
+
+/* BURGER */
+
+.burger-menu {
+    display: none;
+}
+
+
+.burger-menu__button {
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  z-index: 101;
+  width: 60px;
+  height: 60px;
+
+  transition: 0.5s;
+}
+
+.header.fixed .burger-menu__lines {
+  top: 8%;
+  left: 70%;
+}
+
+.burger-menu__active .burger-menu__button,
+.burger-menu__active .burger-menu__lines {
+  background-color: transparent;
+}
+
+.burger-menu__active .burger-menu__lines::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: #ffffff;
+
+  transition: .2s;
+}
+
+.burger-menu__active .burger-menu__lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: #ffffff;
+  transition: .2s;
+}
+
+
+.burger-menu__lines,
+.burger-menu__lines::after,
+.burger-menu__lines::before {
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  background-color: #000000;
+}
+
+.burger-menu__lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.burger-menu__lines::before {
+  content: '';
+  top: -12px;
+}
+
+.burger-menu__lines::after {
+  content: '';
+  top: 12px;
+}
+
+.burger-menu__nav {
+  padding-top: 120px;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  background-color: #2a2a2a;
+  overflow-y: auto;
+  right: -100%;
+  width: 300px;
+  text-align: center;
+
+  transition: 0.5s;
+}
+
+.burger-menu__active .burger-menu__nav {
+  right: 0;
+}
+
+.burger__link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+  padding-bottom: 7px;
+  font-size: 21px;
+  vertical-align: top;
+  margin: 15px 15px; 
+}
+
+.burger-menu__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.burger-menu__active .burger-menu__overlay {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+/* INTRO */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    height: 600px;
+    
+    background: #87509c url("img/bg1.jpg") center no-repeat;
+    background-size: cover;
+    
+}
+
+.intro__inner {
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+    
+    text-align: center;
+}
+
+.intro__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 42px;
+    color: #ffffff;
+    line-height: 1.4em;
+    
+    width: 100%;
+    
+    padding-bottom: 60px;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 18px 3em;
+    border-bottom: 4px solid #c86a40;
+    
+    border-radius: 5px;
+    
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    
+    background-color: #eb7d4b;
+    color: #ffffff;
+    
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ef550f;
+    box-shadow: #454341;
+}
+
+/* SERVICES */
+
+.section__title {
+    font-size: 40px;    
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+
+.section__suptitle {
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.section__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 10px auto;
+    
+    background-color: #14a58c;
+}
+
+.section__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    
+    text-align: center;
+}
+
+/* SERVICES */
+
+.services {
+    background: #17c2a4 center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.services__item {
+    max-width: 100%;
+    width: 200px;
+    text-align: center;
+    margin: 20px auto 20px;
+}
+
+.services__title {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.services__text {
+    font-weight: 300;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.services__row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 100px;
+}
+
+/* TEAM */
+
+.team {
+    background: #e7f1f8 center no-repeat;
+    background-size: cover;
+}
+
+.team__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    
+    text-align: center;
+}
+
+.team__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #3c4761;
+}
+
+.team__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 20px auto;
+    
+    background-color: #c8d9e5;
+}
+
+.team__suptitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #3c4761;
+}
+
+
+.team__inner {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+    padding-bottom: 100px;
+}
+
+.team__item {
+    width: 100%;
+    max-width: 280px;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+
+.team__inner__title {
+    color: #27283d;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+    
+    padding-top: 15px;
+}
+
+.team__inner__position {
+    color: #30bae7;
+    font-size: 16px;
+    
+}
+
+.team__inner__text {
+    padding: 15px;
+    
+    font-size: 16px;
+    font-weight: 600;
+    color: #3c4761;
+    
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.team__inner__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social__item {
+    display: flex;
+    
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    
+    
+}
+
+.social__icon {
+    fill: #c6cacc;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.social__item:hover {
+    background-color: #e8ecee;
+}
+
+.social__item:hover .social__icon {
+    fill: #000;
+}
+
+.social__item:hover .social__icon {
+    fill: #000;
+}
+
+/* SKILLS */
+
+.skills {
+    background: #ffffff center no-repeat;
+    background-size: cover;
+    
+}
+
+.skills__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 690px;
+    margin: 0 auto 50px;
+    
+    text-align: center; 
+}
+
+.skills__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #3c4761;
+    text-transform: uppercase;
+}
+
+.skills__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 20px auto;
+    
+    background-color: #c8d9e5;
+}
+
+.skills__suptitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #3c4761;
+}
+
+.skills__inner {
+    display: flex;
+    justify-content: space-around;
+    
+    padding-bottom: 100px;
+}
+
+.skills__item {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+
+.skills__text {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #3c4761;
+    
+    padding-top: 15px;
+}
+
+/* PORTFOLIO */
+.portfolio {
+    background: #ffdd99 center no-repeat;
+    background-size: cover;
+    
+}
+
+.portfolio__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 690px;
+    margin: 0 auto 50px;
+    
+    text-align: center;
+}
+
+.portfolio__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #393939;
+    text-transform: uppercase;
+}
+
+.portfolio__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 20px auto;
+    
+    background-color: #e5c37f;
+}
+
+.portfolio__suptitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #393939;
+}
+
+.categories__inner {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.categories__item {
+    background-color: #ebc985;
+    border: opacity solid;
+    border-radius: 2px;
+    padding: 5px 20px;
+    margin: auto 5px;
+    
+    color: #393939;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
+    transition: 0.2s;
+}
+
+.categories__item:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.works__inner {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.works__item {
+    max-width: 540px;
+    margin: 30px 15px 30px 0;
+}
+
+.works__name {
+    font-size: 18px;
+    color: #393939;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    
+    padding-top: 20px;
+}
+
+.portfolio__button__inner {
+    display: flex;
+    justify-content: center;
+    
+    padding-top: 30px;
+}
+
+.portfolio__button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 18px 3em;
+    margin-bottom: 80px;
+    border-bottom: 4px solid #14a58c;
+    
+    border-radius: 5px;
+    
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    
+    
+    background-color: #17c2a4;
+    color: #ffffff;
+    
+    transition: 0.2s;
+}
+
+.portfolio__button:hover {
+    background-color: #369b89;
+    cursor: pointer;
+}
+
+/* REVIEWS */
+
+.reviews {
+    background: #d74680 center no-repeat;
+    background-size: cover;
+    
+    
+}
+
+.reviews__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 690px;
+    margin: 0 auto 50px;
+    
+    text-align: center;
+}
+
+.reviews__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.reviews__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 20px auto;
+    
+    background-color: #b73c6d;
+}
+
+.reviews__suptitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.reviews__inner {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-top: 70px;
+}
+
+.reviews__item {
+    padding: 0 40px 0 175px;
+    margin-bottom: 150px;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    
+    box-sizing: border-box;
+}
+
+.reviews__img {
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 1;
+}
+
+.reviews__content {
+    margin-left: 20px;
+}
+
+.reviews__text {
+    font-size: 21px;
+    color: #ffffff;
+    font-style: italic;
+    font-weight: 300;
+    
+}
+
+.reviews__name {
+    font-weight: 800;
+    font-size: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    
+    margin-top: 20px;
+}
+
+.reviews__position {
+    color: #ffdd99;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* MASSAGE */
+
+.message {
+    background: #3c5499 center no-repeat;
+    background-size: cover;
+    
+    
+}
+
+.message__header {
+    padding-top: 90px;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 50px;
+    
+    text-align: center;
+}
+
+.message__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.message__title:after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 20px auto;
+    
+    background-color: #273a71;
+}
+
+.message__suptitle {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.text__box {
+    padding-top: 30px;
+}
+
+.name__email {
+    display: flex;
+}
+
+
+.text--box {
+    width: 510px;
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 18px;
+    background: #273a71;
+    border: none;
+    margin: 0;
+    outline: none;
+    border-radius: 3px;
+    margin-left: 15px;
+}
+
+.message--box {
+    font-family: 'Titillium Web', sans-serif; 
+    font-weight: 400;
+    width: 100%;
+    max-width: 1035px;
+    height: 120px;
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 21px;
+    background: #273a71;
+    border: none;
+    margin: 0;
+    outline: none;
+    border-radius: 3px;
+    margin-left: 15px;
+    margin-top: 30px;
+    resize: none;
+}
+
+.send__button__inner {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 60px;
+}
+
+.send__button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 18px 3em;
+    margin-bottom: 80px;
+    border-bottom: 4px solid #299ec5;
+    
+    border-radius: 5px;
+    
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    
+    
+    background-color: #30bae7;
+    color: #ffffff;
+    
+    transition: 0.2s;
+}
+
+.send__button:hover {
+    background-color: #1f90b5;
+    cursor: pointer;
+}
+
+.footer {
+    background: #344b8e center no-repeat;
+    background-size: cover;
+    border-top: 1px solid;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer__item {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 30px auto;
+    
+    transition: 0.2s;
+}
+
+.footer__item:hover {
+    color: #30bae7;
+}
+
+
+
+/* SCROLL TOP/DOWN */
+
+.up_down_btn {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 9999;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #FF3131;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 20px;
+  display: none;
+  opacity: 0.7;
+}
+
+.up_down_btn:hover {
+  text-decoration: none;
   
-    <a class="up_down_btn" title="Наверх">&uarr;</a>  
-   
-   
-   
-   
-   
-   
+}
 
-   
-   
+.up_down_btn-show {
+  display: block;
+}
+
+.up_down_btn-disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0;
+}
+
+
+
+
+/* ADAPTIV */
+
+@media (max-width: 1200px) {
+    .intro__title {
+        font-size: 38px;
+    }
     
-</body>
+    
+    .team__item {
+        width: 60%;
+    }
+}
 
-<script src="js/burger.js"></script>
-<script src="js/scrolltopdown.js"></script>
+@media (max-width: 991px) {
+    .intro__inner {
+        width: 80%;
+    }
+    
+    .intro__title {
+        font-size: 34px;
+    }
+    
+    .services__row {
+        flex-wrap: wrap;
+        padding-bottom: 70px;
+        
+    }
+    
+    .services__item {
+        width: 35%;
+        padding-top: 20px;
+        max-width: 350px;
+        
+    }
+    
+    .team__inner {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .team__item {
+        width: 50%;
+        max-width: 325px;
+        padding-top: 20px;
+    }
+    
+    .skills__inner {
+        flex-wrap: wrap;
+    }
+    
+    .skills__item {
+        width: 50%;
+        max-width: 325px;
+        padding-bottom: 50px;
+    }
+    
+    .works__inner {
+        justify-content: center;
+    }
+    
+    
+    .reviews__inner {
+        justify-content: center;
+    }
+    
+    .reviews__item {
+        margin-bottom: 90px;
+    }
+    
+    .name__email {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    label {
+        padding-top: 20px;
+    }
+    
+    
+    .message__box {
+        display: flex;
+        justify-content: center;
+    }
+    
+}
 
-</html>
+@media (max-width: 767px) {
+    .nav {
+        display: none;
+    }
+    
+    .burger-menu {
+        display: block;
+    }
+    
+
+@media (max-width: 600px) {
+    
+}
+
+@media (max-width: 414px) {
+    .intro__inner {
+        width: 100%;
+    }
+
+    .intro__title {
+        font-size: 28px;
+    }
+    
+    .button {
+        padding: 18px 1em
+    }
+    
+    .services__item {
+        width: 80%;
+        padding-top: 40px;
+        max-width: 350px;
+        
+    }
+
+    .services__text {
+        font-size: 18px;
+    }
+
+    .team__header {
+        padding-top: 50px;
+    }
+    
+    .team__inner {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .team__item {
+        width: 70%;
+        max-width: 325px;
+        padding-top: 10px;
+    }
+    
+    .team__inner__icon {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills__header {
+        padding-top: 50px;
+    }
+    
+    .skills__item {
+        width: 60%;
+    }
+
+    .portfolio__header {
+        padding-top: 50px;
+    }
+    
+    .works__img {
+        width: 501px;
+        height: 261px;
+    }
+    
+    .works__item {
+        max-width: 485px;
+    }
+    
+    .footer__inner {
+        flex-wrap: wrap;
+    }
+    
+    .footer__item {
+        padding-right: 20px;
+    }
+    
+    .text--box {
+        width: 260px;
+    }
+    
+    label {
+        padding-top: 10px;
+    }
+    
+    .message--box {
+        margin-top: 10px;
+        width: 90%;
+    }
+    
+}
+
